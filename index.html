@@ -55,6 +55,18 @@ header.top{position:sticky;top:0;z-index:50;background:rgba(244,242,237,.94);bac
 .foto-hero figcaption{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(21,25,28,.82);color:#fff;border-radius:10px;padding:10px 14px;font-size:.88rem}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.foto-hero{aspect-ratio:4/3}}
 @media (max-width:600px){.foto-hero figcaption{font-size:.78rem;padding:7px 10px;left:10px;right:auto;bottom:10px;max-width:80%}}
+/* carrusel */
+.carrusel{padding:56px 0 64px;background:var(--hormigon);overflow:hidden}
+.carrusel .cab{margin-bottom:22px}
+.flechas{display:flex;gap:8px}
+.flechas button{width:48px;height:48px;border-radius:50%;border:2px solid var(--tinta);background:transparent;color:var(--tinta);font-size:1.3rem;cursor:pointer}
+.flechas button:hover{background:var(--tinta);color:#fff}
+.pista{list-style:none;margin:0;padding:0 max(18px,calc((100% - 1180px)/2));display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 max(18px,calc((100% - 1180px)/2));scrollbar-width:none}
+.pista::-webkit-scrollbar{display:none}
+.pista:focus-visible{outline:3px solid var(--agua);outline-offset:4px}
+.sl{flex:0 0 clamp(220px,26vw,300px);scroll-snap-align:start;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#000}
+.sl img{width:100%;height:100%;object-fit:cover}
+.sl span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;font-size:.9rem;line-height:1.3}
 /* servicios */
 section{padding:76px 0}
 .cab{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
@@ -97,12 +109,13 @@ dialog button{position:fixed;top:14px;right:14px;width:46px;height:46px;border-r
 .dest{position:relative;border-radius:var(--r);overflow:hidden;background:#000;aspect-ratio:9/16;max-height:720px;width:100%}
 .dest video{width:100%;height:100%;object-fit:cover;display:block}
 .dest button{position:absolute;right:12px;bottom:12px;border:0;border-radius:999px;padding:10px 14px;background:rgba(21,25,28,.85);color:#fff;font:700 .85rem/1 "Archivo";cursor:pointer}
-.clips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.clips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .clip{margin:0;position:relative;border-radius:10px;overflow:hidden;background:#000;aspect-ratio:9/16}
 .clip video{width:100%;height:100%;object-fit:cover;display:block}
 .clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 10px 9px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;font-size:.82rem;line-height:1.3}
 .clip a{color:#fff}
 @media (max-width:900px){.videos .wrap{grid-template-columns:1fr}.dest{max-width:420px;margin:0 auto}}
+@media (max-width:1100px){.clips{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.clips{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* antes y después */
 .ad .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -192,6 +205,13 @@ footer a{color:#fff}
   <figure class="foto-hero"><img src="assets/portada.jpg" alt="Piscina de hormigón con borde de travertino junto a una casa de dos pisos" width="1000" height="1000"><figcaption>Piscina de hormigón con borde de piedra, entregada con el patio terminado.</figcaption></figure>
 </div></section>
 
+<section class="carrusel" aria-label="Obras recientes"><div class="wrap">
+  <div class="cab"><div><span class="ojo">Obras recientes</span><h2>Lo último que entregamos</h2></div>
+  <div class="flechas"><button type="button" id="cprev" aria-label="Obra anterior">←</button><button type="button" id="cnext" aria-label="Obra siguiente">→</button></div></div>
+</div>
+  <ul class="pista" id="pista" tabindex="0"><li class="sl"><img src="assets/carrusel/modular-atardecer.jpg" alt="Casa modular · terminación negra" loading="eager" width="800" height="1000"><span>Casa modular · terminación negra</span></li><li class="sl"><img src="assets/quincho-noche.jpg" alt="Terraza y quincho iluminados · Colina" loading="eager" width="800" height="1000"><span>Terraza y quincho iluminados · Colina</span></li><li class="sl"><img src="assets/carrusel/quincho-naranja.jpg" alt="Quincho con barra · Chicureo" loading="eager" width="800" height="1000"><span>Quincho con barra · Chicureo</span></li><li class="sl"><img src="assets/piscina-curva.jpg" alt="Piscina de forma libre" loading="lazy" width="800" height="1000"><span>Piscina de forma libre</span></li><li class="sl"><img src="assets/carrusel/piedra-roja-cocina.jpg" alt="Cocina exterior · Piedra Roja" loading="lazy" width="800" height="1000"><span>Cocina exterior · Piedra Roja</span></li><li class="sl"><img src="assets/quincho-negro.jpg" alt="Quincho con parrilla y mesón" loading="lazy" width="800" height="1000"><span>Quincho con parrilla y mesón</span></li><li class="sl"><img src="assets/carrusel/modular-estructura.jpg" alt="Estructura de casa modular" loading="lazy" width="800" height="1000"><span>Estructura de casa modular</span></li><li class="sl"><img src="assets/modulares.jpg" alt="Casa modular terminada" loading="lazy" width="800" height="1000"><span>Casa modular terminada</span></li><li class="sl"><img src="assets/carrusel/piedra-roja-quincho.jpg" alt="Quincho y piscina · Piedra Roja" loading="lazy" width="800" height="1000"><span>Quincho y piscina · Piedra Roja</span></li><li class="sl"><img src="assets/terraza-cubierta.jpg" alt="Living exterior bajo cubierta" loading="lazy" width="800" height="1000"><span>Living exterior bajo cubierta</span></li><li class="sl"><img src="assets/carrusel/adoquin-camino.jpg" alt="Camino de adoquines" loading="lazy" width="800" height="1000"><span>Camino de adoquines</span></li><li class="sl"><img src="assets/piscina-cascada.jpg" alt="Piscina con cascada y muro de madera" loading="lazy" width="800" height="1000"><span>Piscina con cascada y muro de madera</span></li><li class="sl"><img src="assets/carrusel/terraza-piscina-barnechea.jpg" alt="Terraza y piscina · Lo Barnechea" loading="lazy" width="800" height="1000"><span>Terraza y piscina · Lo Barnechea</span></li><li class="sl"><img src="assets/carrusel/modular-interior.jpg" alt="Interior de casa modular" loading="lazy" width="800" height="1000"><span>Interior de casa modular</span></li><li class="sl"><img src="assets/carrusel/piscina-santiago.jpg" alt="Piscina terminada · Santiago" loading="lazy" width="800" height="1000"><span>Piscina terminada · Santiago</span></li></ul>
+</section>
+
 <section class="servicios" id="servicios"><div class="wrap">
   <div class="cab"><div><span class="ojo">Servicios</span><h2>Lo que construimos</h2></div><p>Trabajamos obra a obra, con cotización por escrito. Cuéntenos su idea y le decimos cómo hacerla.</p></div>
   <div class="grid-s">
@@ -210,17 +230,17 @@ footer a{color:#fff}
     <button type="button" data-f="todos" aria-pressed="true">Todos</button><button type="button" data-f="piscina" aria-pressed="false">Piscinas</button><button type="button" data-f="quincho" aria-pressed="false">Quinchos y terrazas</button><button type="button" data-f="modular" aria-pressed="false">Modulares</button>
   </div>
   <div class="galeria" id="galeria"></div>
-  <p class="ig">Más obras y videos en Instagram <a href="https://www.instagram.com/construve92/" target="_blank" rel="noopener">@construve92</a> y TikTok <a href="https://www.tiktok.com/@anderson.graterol3" target="_blank" rel="noopener">@anderson.graterol3</a></p>
+  <p class="ig">Más obras y videos en <a href="https://www.instagram.com/construve92/" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.tiktok.com/@anderson.graterol3" target="_blank" rel="noopener">TikTok</a> y <a href="https://www.facebook.com/profile.php?id=61559002813540" target="_blank" rel="noopener">Facebook</a></p>
 </div></section>
 
 <section class="videos" id="videos"><div class="wrap">
   <div>
     <span class="ojo">Videos</span>
     <h2 style="font-size:clamp(2rem,4.4vw,3.2rem);font-weight:900;text-transform:uppercase;margin-bottom:14px">Véalo en movimiento</h2>
-    <p style="color:var(--tinta2);margin:0 0 20px">Videos reales de sus obras: piscinas, quinchos, terrazas y casas modulares.</p>
+    <p style="color:var(--tinta2);margin:0 0 20px">Videos reales de nuestras obras, sacados de nuestro <a href="https://www.instagram.com/construve92/" target="_blank" rel="noopener">Instagram</a> y <a href="https://www.tiktok.com/@anderson.graterol3" target="_blank" rel="noopener">TikTok</a>.</p>
     <div class="dest"><video id="vdest" muted loop playsinline preload="metadata" poster="assets/videos/destacado.jpg" src="assets/videos/destacado.mp4" aria-label="Resumen de obras de Construve"></video><button type="button" id="vplay">▶ Reproducir</button></div>
   </div>
-  <div class="clips"><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/cascada.jpg" data-src="assets/videos/cascada.mp4" aria-label="Piscina con hidromasaje"></video><figcaption>Piscina con hidromasaje</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/quincho-luz.jpg" data-src="assets/videos/quincho-luz.mp4" aria-label="Quincho iluminado"></video><figcaption>Quincho iluminado</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/piscina-noche.jpg" data-src="assets/videos/piscina-noche.mp4" aria-label="Piscina de noche"></video><figcaption>Piscina de noche</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/contenedor.jpg" data-src="assets/videos/contenedor.mp4" aria-label="Casa contenedor por dentro"></video><figcaption>Casa contenedor por dentro</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/terraza.jpg" data-src="assets/videos/terraza.mp4" aria-label="Terraza con cubierta"></video><figcaption>Terraza con cubierta</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/obra-contenedor.jpg" data-src="assets/videos/obra-contenedor.mp4" aria-label="Obra en terreno"></video><figcaption>Obra en terreno</figcaption></figure></div>
+  <div class="clips"><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/cascada.jpg" data-src="assets/videos/cascada.mp4" aria-label="Piscina con hidromasaje"></video><figcaption>Piscina con hidromasaje</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/quincho-luz.jpg" data-src="assets/videos/quincho-luz.mp4" aria-label="Quincho iluminado"></video><figcaption>Quincho iluminado</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/piscina-noche.jpg" data-src="assets/videos/piscina-noche.mp4" aria-label="Piscina de noche"></video><figcaption>Piscina de noche</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/contenedor.jpg" data-src="assets/videos/contenedor.mp4" aria-label="Casa contenedor por dentro"></video><figcaption>Casa contenedor por dentro</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/terraza.jpg" data-src="assets/videos/terraza.mp4" aria-label="Terraza con cubierta"></video><figcaption>Terraza con cubierta</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/obra-contenedor.jpg" data-src="assets/videos/obra-contenedor.mp4" aria-label="Obra en terreno"></video><figcaption>Obra en terreno</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-modular-atardecer.jpg" data-src="assets/videos/tt-modular-atardecer.mp4" aria-label="Casa modular al atardecer"></video><figcaption>Casa modular al atardecer</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-quincho-colina.jpg" data-src="assets/videos/tt-quincho-colina.mp4" aria-label="Terraza y quincho · Colina, Chicureo"></video><figcaption>Terraza y quincho · Colina, Chicureo</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-terraza-barnechea.jpg" data-src="assets/videos/tt-terraza-barnechea.mp4" aria-label="Terraza en madera y fierro · Lo Barnechea"></video><figcaption>Terraza en madera y fierro · Lo Barnechea</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-piedra-roja.jpg" data-src="assets/videos/tt-piedra-roja.mp4" aria-label="Proyecto completo · Piedra Roja"></video><figcaption>Proyecto completo · Piedra Roja</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-oficinas.jpg" data-src="assets/videos/tt-oficinas.mp4" aria-label="Oficinas en estructura Vulcometal"></video><figcaption>Oficinas en estructura Vulcometal</figcaption></figure><figure class="clip"><video muted loop playsinline preload="none" poster="assets/videos/tt-bomba-calor.jpg" data-src="assets/videos/tt-bomba-calor.mp4" aria-label="Bomba de calor · Peñalolén"></video><figcaption>Bomba de calor · Peñalolén</figcaption></figure></div>
 </div></section>
 
 <section class="ad"><div class="wrap">
@@ -247,6 +267,7 @@ footer a{color:#fff}
       <a href="https://wa.me/56939300090" target="_blank" rel="noopener"><span aria-hidden="true">💬</span><span><b>+56 9 3930 0090</b><span>WhatsApp</span></span></a>
       <a href="https://www.instagram.com/construve92/" target="_blank" rel="noopener"><span aria-hidden="true">📷</span><span><b>@construve92</b><span>Instagram</span></span></a>
       <a href="https://www.tiktok.com/@anderson.graterol3" target="_blank" rel="noopener"><span aria-hidden="true">🎬</span><span><b>@anderson.graterol3</b><span>TikTok · videos de obras</span></span></a>
+      <a href="https://www.facebook.com/profile.php?id=61559002813540" target="_blank" rel="noopener"><span aria-hidden="true">👍</span><span><b>Construve Vnzla</b><span>Facebook</span></span></a>
     </div>
   </div>
   <form class="f" id="f" novalidate>
@@ -266,14 +287,15 @@ footer a{color:#fff}
 
 <section class="faq"><div class="wrap">
   <span class="ojo">Preguntas frecuentes</span>
-  <details><summary>¿En qué comunas trabajan?</summary><p>Hemos construido en Colina, Chicureo, Piedra Roja y Lo Barnechea, entre otras comunas de la Región Metropolitana. Escríbanos con su comuna y le confirmamos.</p></details>
+  <details><summary>¿En qué comunas trabajan?</summary><p>Construimos piscinas en todo Santiago. Tenemos obras en Colina, Chicureo, Piedra Roja, Lo Barnechea y Peñalolén, entre otras comunas. Escríbanos con su comuna y le confirmamos.</p></details>
   <details><summary>¿Cómo cotizo?</summary><p>Por WhatsApp o con el formulario de esta página. Mientras más fotos y medidas nos envíe, más rápido le respondemos.</p></details>
-  <details><summary>¿Hacen solo piscinas?</summary><p>No. También construimos quinchos, terrazas, casas modulares y contenedor, remodelaciones e instalamos adoquines. Además hacemos obras mayores como oficinas y galpones.</p></details>
-  <details><summary>¿Instalan los equipos de la piscina?</summary><p>Sí, instalamos equipos de filtración y bombas de calor para temperar el agua.</p></details>
+  <details><summary>¿Hacen solo piscinas?</summary><p>No. También construimos quinchos, terrazas, casas modulares y contenedor, remodelaciones e instalamos adoquines. Además hacemos obras mayores: oficinas en estructura de acero Vulcometal y trabajos en el colegio Andalién de Colina.</p></details>
+  <details><summary>¿Instalan los equipos de la piscina?</summary><p>Sí, instalamos equipos de filtración y bombas de calor para temperar el agua, por ejemplo en una piscina que construimos en Peñalolén.</p></details>
+  <details><summary>¿Fabrican casas modulares y de contenedor?</summary><p>Sí. Las fabricamos con estructura metálica, revestimiento exterior, ventanales, cocina y baño terminados. Escríbanos con los metros que necesita.</p></details>
 </div></section>
 </main>
 
-<footer><div class="wrap"><span>Construve · Piscinas &amp; remodelaciones · Región Metropolitana</span><span><a href="privacidad.html">Política de privacidad</a> · Página de muestra preparada por <a href="https://sentry-code.cl" target="_blank" rel="noopener">SENTRY-CODE</a></span></div></footer>
+<footer><div class="wrap"><span>Construve · Piscinas &amp; remodelaciones · Región Metropolitana · <a href="https://www.instagram.com/construve92/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@anderson.graterol3" target="_blank" rel="noopener">TikTok</a> · <a href="https://www.facebook.com/profile.php?id=61559002813540" target="_blank" rel="noopener">Facebook</a></span><span><a href="privacidad.html">Política de privacidad</a> · Página de muestra preparada por <a href="https://sentry-code.cl" target="_blank" rel="noopener">SENTRY-CODE</a></span></div></footer>
 
 <a class="flota" href="https://wa.me/56939300090?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></a>
 <nav class="barra" aria-label="Acciones rápidas"><a href="#proyectos">Ver obras</a><a class="wa" href="https://wa.me/56939300090?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Cotizar por WhatsApp</a></nav>
@@ -315,6 +337,13 @@ document.querySelectorAll('.clip video').forEach(v=>io2.observe(v));
 const vd=document.getElementById('vdest'),vp=document.getElementById('vplay');
 vp.onclick=()=>{if(vd.paused){vd.play();vp.textContent='❚❚ Pausa'}else{vd.pause();vp.textContent='▶ Reproducir'}};
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!quieto){vd.play().then(()=>vp.textContent='❚❚ Pausa').catch(()=>{})}else{vd.pause();vp.textContent='▶ Reproducir'}}),{threshold:.4}).observe(vd);
+const pista=document.getElementById('pista');
+const paso=()=>{const sl=pista.querySelector('.sl');return sl?sl.getBoundingClientRect().width+14:300};
+const mover=d=>{const fin=pista.scrollLeft+pista.clientWidth>=pista.scrollWidth-4;if(d>0&&fin)pista.scrollTo({left:0,behavior:'smooth'});else pista.scrollBy({left:d*paso(),behavior:'smooth'})};
+document.getElementById('cprev').onclick=()=>{mover(-1);parar()};document.getElementById('cnext').onclick=()=>{mover(1);parar()};
+let auto=null;const parar=()=>{clearInterval(auto);auto=null};
+if(!quieto){auto=setInterval(()=>mover(1),4500);['pointerdown','wheel','touchstart','focusin'].forEach(e=>pista.addEventListener(e,parar,{passive:true}))}
+pista.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){mover(1);parar()}if(e.key==='ArrowLeft'){mover(-1);parar()}});
 </script>
 </body>
 </html>
